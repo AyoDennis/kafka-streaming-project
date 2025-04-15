@@ -16,3 +16,15 @@ conf = {'bootstrap.servers': 'localhost:9092',
         # 'linger.ms': 100,  # Wait up to 100ms to batch messages
         # 'batch.num.messages': 1000 # in bytes    
         }
+
+# Create Producer instance
+p = Producer(conf)
+
+
+def delivery_report(err, msg): 
+    """ Called once for each message produced to indicate delivery result.
+        Triggered by poll() or flush(). """
+    if err is not None:
+        print(f'Message delivery failed: {err}')
+    else:
+        print(f'At {time.strftime("%H:%M:%S", time.localtime())}, your message was delivered to topic => {msg.topic()}, partition => [{msg.partition()}], offset = {msg.offset()}')
