@@ -46,3 +46,7 @@ while i <= 100:
     # print(event)
     serialize = json.dumps(event)
     p.produce("deji-testing", serialize, callback=delivery_report)
+    p.produce("my_topic", serialize, callback=delivery_report)
+#     p.poll()
+    p.flush()
+    # p.produce("my-topic", #f"Message {i}")
