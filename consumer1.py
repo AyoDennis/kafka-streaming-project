@@ -1,4 +1,9 @@
-from confluent_kafka import Producer
+from confluent_kafka import Consumer
 import time
-from faker import Faker
-import json
+
+c = Consumer({
+    'bootstrap.servers': 'localhost:9092',
+    'client.id': 'consumer1',
+    'group.id': 'mygroup',
+    'auto.offset.reset': 'earliest'
+})
