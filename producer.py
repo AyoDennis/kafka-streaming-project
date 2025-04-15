@@ -30,3 +30,14 @@ def delivery_report(err, msg):
         print(f'At {time.strftime("%H:%M:%S", time.localtime())}, your message was delivered to topic => {msg.topic()}, partition => [{msg.partition()}], offset = {msg.offset()}')
 
 sample_data = Faker()
+
+
+i = 0
+while i <= 100:
+    event = {'index': i,
+             'name': sample_data.name(),
+             'phone_number': sample_data.phone_number(),
+             'occupation': sample_data.job(),
+             'country': sample_data.country(),
+             'continent': sample_data.location_on_land()
+             }
