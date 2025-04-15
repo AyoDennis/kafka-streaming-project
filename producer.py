@@ -45,3 +45,4 @@ while i <= 100:
     time.sleep(2)
     # print(event)
     serialize = json.dumps(event)
+    p.produce("deji-testing", serialize, callback=delivery_report)
