@@ -1,0 +1,18 @@
+from confluent_kafka import Producer
+import time
+from faker import Faker
+import json
+
+
+# Configuration
+conf = {'bootstrap.servers': 'localhost:9092',
+        'client.id': 'deji_producer',
+        'acks': 'all', # (0, 1, or 'all')
+        'compression.type': 'none',
+        'retry.backoff.ms': 1000, # 3 seconds (1ms = 0.001s),
+        # 'retry.backoff.max.ms': 5000,
+        # 'message.timeout.ms': 10000,  # Optional: Fail after 10s total
+        'retries': 2,
+        # 'linger.ms': 100,  # Wait up to 100ms to batch messages
+        # 'batch.num.messages': 1000 # in bytes    
+        }
