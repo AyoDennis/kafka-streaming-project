@@ -41,3 +41,7 @@ while i <= 100:
              'country': sample_data.country(),
              'continent': sample_data.location_on_land()
              }
+    i += 1
+    time.sleep(2)
+    # print(event)
+    serialize = json.dumps(event)
