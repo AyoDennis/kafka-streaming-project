@@ -28,3 +28,5 @@ def delivery_report(err, msg):
         print(f'Message delivery failed: {err}')
     else:
         print(f'At {time.strftime("%H:%M:%S", time.localtime())}, your message was delivered to topic => {msg.topic()}, partition => [{msg.partition()}], offset = {msg.offset()}')
+
+sample_data = Faker()
