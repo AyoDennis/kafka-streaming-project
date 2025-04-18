@@ -48,4 +48,5 @@ while i <= 100:
     time.sleep(2)
     serialize = json.dumps(event)
     p.produce("my_topic", serialize, callback=delivery_report)
+    p.produce("my_topic2", serialize, callback=delivery_report)
     p.flush()
