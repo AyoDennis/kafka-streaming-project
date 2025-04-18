@@ -8,4 +8,5 @@ c = Consumer({
     'auto.offset.reset': 'earliest'
 })
 
-c.subscribe(['deji-testing'])
+c.subscribe(['my_topic'])
+
