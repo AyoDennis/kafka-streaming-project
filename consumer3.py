@@ -9,3 +9,7 @@ c = Consumer({
 })
 
 c.subscribe(['my_topic', 'my_topic2'])
+
+while True:
+    msg = c.poll(1.0)
+    time.sleep(2)
