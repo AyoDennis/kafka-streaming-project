@@ -16,4 +16,7 @@ while True:
 
     if msg is None:
         continue
+    if msg.error():
+        print("Consumer error: {}".format(msg.error()))
+        continue
     
