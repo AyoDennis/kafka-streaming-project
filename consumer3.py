@@ -7,3 +7,5 @@ c = Consumer({
     'group.id': 'mygroup',
     'auto.offset.reset': 'earliest'
 })
+
+c.subscribe(['my_topic', 'my_topic2'])
