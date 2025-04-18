@@ -8,8 +8,12 @@ c = Consumer({
     'auto.offset.reset': 'earliest'
 })
 
-c.subscribe(['my_topic', 'my_topic2'])
+c.subscribe(['my_topic', ])
 
 while True:
     msg = c.poll(1.0)
     time.sleep(2)
+
+    if msg is None:
+        continue
+    
