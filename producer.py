@@ -1,8 +1,8 @@
-from confluent_kafka import Producer
-import time
-from faker import Faker
 import json
+import time
 
+from confluent_kafka import Producer
+from faker import Faker
 
 # Configuration
 conf = {'bootstrap.servers': 'localhost:9092',
