@@ -1,5 +1,6 @@
-from confluent_kafka import Consumer
 import time
+
+from confluent_kafka import Consumer
 
 c = Consumer({
     'bootstrap.servers': 'localhost:9092',
