@@ -51,7 +51,7 @@ while i <= 100:
              }
     i += 1
     time.sleep(2)
-    logging.info(f"The connection unsuccessful{event}")
+    logging.info(f"{event} successfully produced")
     serialize = json.dumps(event)
     logging.info("event serialised")
     p.produce("my_topic", serialize, callback=delivery_report)
