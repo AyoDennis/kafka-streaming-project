@@ -31,6 +31,7 @@ while True:
         print("Consumer error: {}".format(msg.error()))
         continue
     message = msg.value().decode('utf-8')
-    print(f'Received message from topic => {msg.topic()}, \
-          partition => {msg.partition()}')
-    c.close()
+    logging.info("decoded event")
+    logging.info(f"Received message from topic => {msg.topic()}, \
+          partition => {msg.partition()}")
+c.close()
