@@ -1,6 +1,10 @@
+import logging
 import time
 
 from confluent_kafka import Consumer
+
+logging.basicConfig(format='%(asctime)s %(levelname)s:%(name)s:%(message)s')
+logging.getLogger().setLevel(20)
 
 c = Consumer({
     'bootstrap.servers': 'localhost:9092',

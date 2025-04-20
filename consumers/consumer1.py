@@ -6,14 +6,16 @@ from confluent_kafka import Consumer
 logging.basicConfig(format='%(asctime)s %(levelname)s:%(name)s:%(message)s')
 logging.getLogger().setLevel(20)
 
-c = Consumer({
+conf = {
     'bootstrap.servers': 'localhost:9092',
     'client.id': 'consumer1',
     'group.id': 'mygroup',
     'auto.offset.reset': 'earliest'
-})
+}
 
-logging.info("Starting consumer with config: %s", c)
+c = Consumer(conf)
+
+logging.info(f"Starting consumer with {conf}")
 
 c.subscribe(['my_topic'])
 
@@ -32,6 +34,6 @@ while True:
     logging.info("decoded event")
     logging.info(f"Received message from topic => {msg.topic()}, \
           partition => {msg.partition()}")
-    c.close()
 
+c.close()
 logging.info("Connection successfully closed")
