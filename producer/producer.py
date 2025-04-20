@@ -53,7 +53,7 @@ while i <= 100:
     time.sleep(2)
     logging.info(f"The connection unsuccessful{event}")
     serialize = json.dumps(event)
-    logging.info(f"event serialised")
+    logging.info("event serialised")
     p.produce("my_topic", serialize, callback=delivery_report)
     p.produce("my_topic2", serialize, callback=delivery_report)
 logging.info("Flushing remaining messages...")
