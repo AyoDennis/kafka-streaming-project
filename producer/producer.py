@@ -10,7 +10,7 @@ logging.getLogger().setLevel(20)
 
 
 conf = {'bootstrap.servers': 'localhost:9092',
-        'client.id': 'deji_producer',
+        'client.id': 'my_producer',
         'acks': 'all',
         'compression.type': 'none',
         'retry.backoff.ms': 1000,
