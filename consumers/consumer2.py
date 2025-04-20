@@ -34,6 +34,4 @@ while True:
     logging.info("decoded event")
     logging.info(f"Received message from topic => {msg.topic()}, \
           partition => {msg.partition()}")
-    print(f'Received message from topic => {msg.topic()}, \
-          partition => {msg.partition()}')
 c.close()
