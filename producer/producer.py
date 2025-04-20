@@ -55,4 +55,6 @@ while i <= 100:
     serialize = json.dumps(event)
     p.produce("my_topic", serialize, callback=delivery_report)
     p.produce("my_topic2", serialize, callback=delivery_report)
-    p.flush()
+logging.info("Flushing remaining messages...")
+p.flush()
+logging.info("Producer shutdown complete")
