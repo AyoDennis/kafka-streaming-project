@@ -2,6 +2,8 @@
 
 A comprehensive exploration of Apache Kafka producers and consumers using the Confluent Kafka client library, tested with various configurations and failure scenarios.
 
+*Kindly note that this isn't a production-garde project, but a pet project*
+
 ## Project Overview
 
 This project implements:
