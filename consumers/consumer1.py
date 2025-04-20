@@ -1,3 +1,4 @@
+import logging
 import time
 
 from confluent_kafka import Consumer
@@ -12,7 +13,11 @@ c = Consumer({
     'auto.offset.reset': 'earliest'
 })
 
+logging.info("Starting consumer with config: %s", c)
+
 c.subscribe(['my_topic'])
+
+logging.info("Subscribed to my_topic")
 
 while True:
     msg = c.poll(1.0)
