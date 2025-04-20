@@ -1,6 +1,5 @@
-import logging
-
 import json
+import logging
 import time
 
 from confluent_kafka import Producer
@@ -52,7 +51,9 @@ while i <= 100:
              }
     i += 1
     time.sleep(2)
+    logging.info(f"The connection unsuccessful{event}")
     serialize = json.dumps(event)
+    logging.info(f"event serialised")
     p.produce("my_topic", serialize, callback=delivery_report)
     p.produce("my_topic2", serialize, callback=delivery_report)
 logging.info("Flushing remaining messages...")
