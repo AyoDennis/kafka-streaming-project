@@ -17,12 +17,14 @@ conf = {'bootstrap.servers': 'localhost:9092',
         'retry.backoff.ms': 1000,
         'retry.backoff.max.ms': 5000,
         'message.timeout.ms': 10000,
-        'retries': 2,
+        'retries': 5,
         'linger.ms': 100,
         'batch.num.messages': 1000
         }
 
 p = Producer(conf)
+
+logging.info("Starting producer with config: %s", conf)
 
 
 def delivery_report(err, msg):
