@@ -1,15 +1,25 @@
+import logging
 import time
 
 from confluent_kafka import Consumer
 
-c = Consumer({
+logging.basicConfig(format='%(asctime)s %(levelname)s:%(name)s:%(message)s')
+logging.getLogger().setLevel(20)
+
+conf = {
     'bootstrap.servers': 'localhost:9092',
-    'client.id': 'consumer3',
+    'client.id': 'consumer1',
     'group.id': 'mygroup',
     'auto.offset.reset': 'earliest'
-})
+}
+
+c = Consumer(conf)
+
+logging.info(f"Starting consumer with {conf}")
 
 c.subscribe(['my_topic', 'my_topic2'])
+
+logging.info("Subscribed to two topics: 'my_topic' and 'my_topic2'")
 
 while True:
     msg = c.poll(1.0)
