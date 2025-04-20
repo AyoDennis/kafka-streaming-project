@@ -6,12 +6,14 @@ from confluent_kafka import Consumer
 logging.basicConfig(format='%(asctime)s %(levelname)s:%(name)s:%(message)s')
 logging.getLogger().setLevel(20)
 
-c = Consumer({
+conf = {
     'bootstrap.servers': 'localhost:9092',
-    'client.id': 'consumer2',
+    'client.id': 'consumer1',
     'group.id': 'mygroup',
     'auto.offset.reset': 'earliest'
-})
+}
+
+c = Consumer(conf)
 
 c.subscribe(['my_topic'])
 
@@ -27,4 +29,4 @@ while True:
     message = msg.value().decode('utf-8')
     print(f'Received message from topic => {msg.topic()}, \
           partition => {msg.partition()}')
-    c.close()
+c.close()
