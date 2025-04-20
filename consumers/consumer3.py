@@ -8,7 +8,7 @@ logging.getLogger().setLevel(20)
 
 conf = {
     'bootstrap.servers': 'localhost:9092',
-    'client.id': 'consumer1',
+    'client.id': 'consumer3',
     'group.id': 'mygroup',
     'auto.offset.reset': 'earliest'
 }
