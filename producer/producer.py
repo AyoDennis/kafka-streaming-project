@@ -1,8 +1,14 @@
+import logging
+
 import json
 import time
 
 from confluent_kafka import Producer
 from faker import Faker
+
+logging.basicConfig(format='%(asctime)s %(levelname)s:%(name)s:%(message)s')
+logging.getLogger().setLevel(20)
+
 
 conf = {'bootstrap.servers': 'localhost:9092',
         'client.id': 'deji_producer',
@@ -16,7 +22,6 @@ conf = {'bootstrap.servers': 'localhost:9092',
         'batch.num.messages': 1000
         }
 
-# Create Producer instance
 p = Producer(conf)
 
 
