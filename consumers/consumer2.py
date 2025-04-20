@@ -15,7 +15,11 @@ conf = {
 
 c = Consumer(conf)
 
+logging.info(f"Starting consumer with {conf}")
+
 c.subscribe(['my_topic'])
+
+logging.info("Subscribed to my_topic")
 
 while True:
     msg = c.poll(1.0)
