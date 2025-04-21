@@ -12,7 +12,7 @@ This project implements:
 - Various configuration tests for both producers and consumers
 - Failure scenario simulations
 
-## Architectural Illustration
+## Architecture
 <img width="762" alt="ARCHITECTURE" src="https://github.com/user-attachments/assets/20c4e3f1-e38a-4b61-8cac-5e4a33fce022" />
 
 
