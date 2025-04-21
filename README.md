@@ -12,6 +12,11 @@ This project implements:
 - Various configuration tests for both producers and consumers
 - Failure scenario simulations
 
+## Architectural Illustration
+![image](https://github.com/user-attachments/assets/380eeb49-4817-4c13-889e-04b1222f7443)
+
+
+
 ## Technical Stack
 
 - **Kafka Client**: Confluent Kafka library
