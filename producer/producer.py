@@ -9,16 +9,17 @@ logging.basicConfig(format='%(asctime)s %(levelname)s:%(name)s:%(message)s')
 logging.getLogger().setLevel(20)
 
 
-producer_configuration = {'bootstrap.servers': 'localhost:9092',
-        'client.id': 'demo_producer',
-        'acks': 'all',
-        'compression.type': 'none',
-        'retry.backoff.ms': 1000,
-        'retry.backoff.max.ms': 5000,
-        'message.timeout.ms': 10000,
-        'retries': 5,
-        'linger.ms': 100,
-        'batch.num.messages': 1000
+producer_configuration = {
+    'bootstrap.servers': 'localhost:9092',
+    'client.id': 'demo_producer',
+    'acks': 'all',
+    'compression.type': 'none',
+    'retry.backoff.ms': 1000,
+    'retry.backoff.max.ms': 5000,
+    'message.timeout.ms': 10000,
+    'retries': 5,
+    'linger.ms': 100,
+    'batch.num.messages': 1000
         }
 
 producer = Producer(producer_configuration)
