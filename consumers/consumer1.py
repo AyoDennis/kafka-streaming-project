@@ -13,16 +13,16 @@ conf = {
     'auto.offset.reset': 'earliest'
 }
 
-c = Consumer(conf)
+consumer = Consumer(conf)
 
 logging.info(f"Starting consumer with {conf}")
 
-c.subscribe(['my_topic'])
+consumer.subscribe(['my_topic'])
 
 logging.info("Subscribed to my_topic")
 
 while True:
-    msg = c.poll(1.0)
+    msg = consumer.poll(1.0)
     time.sleep(2)
 
     if msg is None:
@@ -35,5 +35,5 @@ while True:
     logging.info(f"Received message from topic => {msg.topic()}, \
           partition => {msg.partition()}")
 
-c.close()
+consumer.close()
 logging.info("Connection successfully closed")
