@@ -9,7 +9,7 @@ logging.basicConfig(format='%(asctime)s %(levelname)s:%(name)s:%(message)s')
 logging.getLogger().setLevel(20)
 
 
-conf = {'bootstrap.servers': 'localhost:9092',
+producer_configuration = {'bootstrap.servers': 'localhost:9092',
         'client.id': 'my_producer',
         'acks': 'all',
         'compression.type': 'none',
@@ -21,9 +21,9 @@ conf = {'bootstrap.servers': 'localhost:9092',
         'batch.num.messages': 1000
         }
 
-producer = Producer(conf)
+producer = Producer(producer_configuration)
 
-logging.info("Starting producer with config: %s", conf)
+logging.info("Starting producer with config: %s", producer_configuration)
 
 
 def delivery_report(err, msg):
@@ -54,8 +54,9 @@ while i <= 100:
     logging.info(f"{event} successfully produced")
     serialize = json.dumps(event)
     logging.info("event serialised")
-    producer.produce("my_topic", serialize, callback=delivery_report)
-    producer.produce("my_topic2", serialize, callback=delivery_report)
+    producer.produce("demo_topic", serialize, callback=delivery_report)
+    producer.produce("demo_topic2", serialize, callback=delivery_report)
+
 logging.info("Flushing remaining messages...")
 producer.flush()
 logging.info("Producer shutdown complete")

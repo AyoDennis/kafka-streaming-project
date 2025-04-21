@@ -6,20 +6,20 @@ from confluent_kafka import Consumer
 logging.basicConfig(format='%(asctime)s %(levelname)s:%(name)s:%(message)s')
 logging.getLogger().setLevel(20)
 
-conf = {
+consumer_configuration = {
     'bootstrap.servers': 'localhost:9092',
     'client.id': 'consumer1',
     'group.id': 'mygroup',
     'auto.offset.reset': 'earliest'
 }
 
-consumer = Consumer(conf)
+consumer = Consumer(consumer_configuration)
 
-logging.info(f"Starting consumer with {conf}")
+logging.info(f"Starting consumer with {consumer_configuration}")
 
-consumer.subscribe(['my_topic'])
+consumer.subscribe(['demo_topic'])
 
-logging.info("Subscribed to my_topic")
+logging.info("Subscribed to demo_topic")
 
 while True:
     msg = consumer.poll(1.0)
@@ -36,4 +36,4 @@ while True:
           partition => {msg.partition()}")
 
 consumer.close()
-logging.info("Connection successfully closed")
+logging.info("Connection closed unexpectedly")
