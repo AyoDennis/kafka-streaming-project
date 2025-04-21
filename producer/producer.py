@@ -21,7 +21,7 @@ conf = {'bootstrap.servers': 'localhost:9092',
         'batch.num.messages': 1000
         }
 
-p = Producer(conf)
+producer = Producer(conf)
 
 logging.info("Starting producer with config: %s", conf)
 
@@ -54,8 +54,8 @@ while i <= 100:
     logging.info(f"{event} successfully produced")
     serialize = json.dumps(event)
     logging.info("event serialised")
-    p.produce("my_topic", serialize, callback=delivery_report)
-    p.produce("my_topic2", serialize, callback=delivery_report)
+    producer.produce("my_topic", serialize, callback=delivery_report)
+    producer.produce("my_topic2", serialize, callback=delivery_report)
 logging.info("Flushing remaining messages...")
 p.flush()
 logging.info("Producer shutdown complete")
