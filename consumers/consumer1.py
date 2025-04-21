@@ -9,7 +9,7 @@ logging.getLogger().setLevel(20)
 consumer_configuration = {
     'bootstrap.servers': 'localhost:9092',
     'client.id': 'consumer1',
-    'group.id': 'mygroup',
+    'group.id': 'demo',
     'auto.offset.reset': 'earliest'
 }
 

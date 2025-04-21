@@ -9,7 +9,7 @@ logging.getLogger().setLevel(20)
 consumer_configuration = {
     'bootstrap.servers': 'localhost:9092',
     'client.id': 'consumer3',
-    'group.id': 'mygroup',
+    'group.id': 'demo',
     'auto.offset.reset': 'earliest'
 }
 
@@ -17,7 +17,7 @@ consumer = Consumer(consumer_configuration)
 
 logging.info(f"Starting consumer with {consumer_configuration}")
 
-consumer.subscribe(['my_topic', 'my_topic2'])
+consumer.subscribe(['demo_topic', 'demo_topic2'])
 
 logging.info("Subscribed to two topics: 'my_topic' and 'my_topic2'")
 
