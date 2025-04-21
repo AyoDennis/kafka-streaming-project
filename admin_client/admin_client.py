@@ -1,15 +1,15 @@
 from confluent_kafka.admin import AdminClient, NewTopic
 
-a = AdminClient({'bootstrap.servers': 'localhost:9092'})
+admin = AdminClient({'bootstrap.servers': 'localhost:9092'})
 
 new_topics = [
     NewTopic(topic, num_partitions=3, replication_factor=1)
     for topic in ["demo_topic", "demo_topic2"]
     ]
 
-fs = a.create_topics(new_topics)
+future_result = admin.create_topics(new_topics)
 
-for topic, f in fs.items():
+for topic, f in future_result.items():
     try:
         f.result()
         print("Topic {} created".format(topic))
