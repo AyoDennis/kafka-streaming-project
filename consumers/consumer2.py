@@ -34,4 +34,6 @@ while True:
     logging.info("decoded event")
     logging.info(f"Received message from topic => {msg.topic()}, \
           partition => {msg.partition()}")
+
 consumer.close()
+logging.info("Connection closed unexpectedly")

@@ -13,16 +13,16 @@ conf = {
     'auto.offset.reset': 'earliest'
 }
 
-c = Consumer(conf)
+consumer = Consumer(conf)
 
 logging.info(f"Starting consumer with {conf}")
 
-c.subscribe(['my_topic', 'my_topic2'])
+consumer.subscribe(['my_topic', 'my_topic2'])
 
 logging.info("Subscribed to two topics: 'my_topic' and 'my_topic2'")
 
 while True:
-    msg = c.poll(1.0)
+    msg = consumer.poll(1.0)
     time.sleep(2)
 
     if msg is None:
@@ -34,4 +34,6 @@ while True:
     logging.info("decoded event")
     logging.info(f"Received message from topic => {msg.topic()}, \
           partition => {msg.partition()}")
-c.close()
+
+consumer.close()
+logging.info("Connection closed unexpectedly")
