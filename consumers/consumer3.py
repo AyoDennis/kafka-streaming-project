@@ -19,7 +19,7 @@ logging.info(f"Starting consumer with {consumer_configuration}")
 
 consumer.subscribe(['demo_topic', 'demo_topic2'])
 
-logging.info("Subscribed to two topics: 'my_topic' and 'my_topic2'")
+logging.info("Subscribed to two topics: 'demo_topic' and 'demo_topic2'")
 
 while True:
     msg = consumer.poll(1.0)
