@@ -57,5 +57,5 @@ while i <= 100:
     producer.produce("my_topic", serialize, callback=delivery_report)
     producer.produce("my_topic2", serialize, callback=delivery_report)
 logging.info("Flushing remaining messages...")
-p.flush()
+producer.flush()
 logging.info("Producer shutdown complete")
