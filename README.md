@@ -13,7 +13,7 @@ This project implements:
 - Failure scenario simulations
 
 ## Architecture
-<img width="762" alt="ARCHITECTURE" src="https://github.com/user-attachments/assets/20c4e3f1-e38a-4b61-8cac-5e4a33fce022" />
+![image](https://github.com/user-attachments/assets/35958e97-4239-4761-a8a0-968b507ab947)
 
 
 ## Technical Stack
