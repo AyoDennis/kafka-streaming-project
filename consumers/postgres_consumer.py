@@ -77,4 +77,10 @@ try:
             logging.error(f"Error writing to PostgreSQL: {e}")
             conn.rollback()
 
-            
+except KeyboardInterrupt:
+    logging.info("Consumer interrupted by user")
+finally:
+    consumer.close()
+    cursor.close()
+    conn.close()
+    logging.info("Resources released and connections closed")
