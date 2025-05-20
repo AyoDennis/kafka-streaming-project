@@ -51,3 +51,8 @@ except Exception as e:
 
 consumer.subscribe(['demo_topic'])
 logging.info("Subscribed to demo_topic")
+
+try:
+    while True:
+        msg = consumer.poll(1.0)
+        time.sleep(2)
