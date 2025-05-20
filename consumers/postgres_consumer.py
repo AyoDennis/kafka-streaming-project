@@ -17,3 +17,11 @@ consumer_configuration = {
     'group.id': 'demo',
     'auto.offset.reset': 'earliest'
 }
+
+pg_config = {
+    'host': 'localhost',
+    'database': 'postgres',  # Change to your database name
+    'user': 'postgres',     # Change to your username
+    'password': 'postgres', # Change to your password
+    'port': '5432'          # Change if your PostgreSQL uses a different port
+}
