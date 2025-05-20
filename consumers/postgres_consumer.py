@@ -48,3 +48,5 @@ try:
 except Exception as e:
     logging.error(f"Error connecting to PostgreSQL: {e}")
     exit(1)
+
+consumer.subscribe(['demo_topic'])
