@@ -65,3 +65,16 @@ try:
         message = msg.value().decode('utf-8')
         logging.info("decoded event")
         logging.info(f"Received message from topic => {msg.topic()}, partition => {msg.partition()}")
+        
+        try:
+            cursor.execute("""
+                INSERT INTO kafka_messages (topic, partition, message)
+                VALUES (%s, %s, %s)
+            """, (msg.topic(), msg.partition(), message))
+            conn.commit()
+            logging.info("Message written to PostgreSQL")
+        except Exception as e:
+            logging.error(f"Error writing to PostgreSQL: {e}")
+            conn.rollback()
+
+            
