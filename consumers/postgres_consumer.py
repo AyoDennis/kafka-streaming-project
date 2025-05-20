@@ -56,9 +56,12 @@ try:
     while True:
         msg = consumer.poll(1.0)
         time.sleep(2)
-        
+
         if msg is None:
             continue
         if msg.error():
             logging.error(f"Consumer error: {msg.error()}")
             continue
+        message = msg.value().decode('utf-8')
+        logging.info("decoded event")
+        logging.info(f"Received message from topic => {msg.topic()}, partition => {msg.partition()}")
