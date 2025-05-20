@@ -50,3 +50,4 @@ except Exception as e:
     exit(1)
 
 consumer.subscribe(['demo_topic'])
+logging.info("Subscribed to demo_topic")
