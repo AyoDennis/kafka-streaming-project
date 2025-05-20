@@ -1,13 +1,14 @@
 from dotenv import load_dotenv
 
-load_dotenv()
-
 import logging
 import time
 import os
 
 import psycopg2
 from confluent_kafka import Consumer
+
+
+load_dotenv()
 
 logging.basicConfig(format='%(asctime)s %(levelname)s:%(name)s:%(message)s')
 logging.getLogger().setLevel(20)
@@ -16,7 +17,7 @@ consumer_configuration = {
     'bootstrap.servers': os.getenv('KAFKA_BOOTSTRAP_SERVERS'),
     'client.id': os.getenv('KAFKA_CLIENT_ID'),
     'group.id': os.getenv('KAFKA_GROUP_ID'),
-    'auto.offset.reset': os.getenv('KAFKA_AUTO_OFFSET_RESET')
+    'auto.offset.reset': 'earliest'
 }
 
 pg_config = {
