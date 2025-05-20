@@ -20,8 +20,8 @@ consumer_configuration = {
 
 pg_config = {
     'host': 'localhost',
-    'database': 'postgres',  # Change to your database name
-    'user': 'postgres',     # Change to your username
-    'password': 'postgres', # Change to your password
-    'port': '5432'          # Change if your PostgreSQL uses a different port
+    'database': 'postgres',
+    'user': 'postgres',
+    'password': 'postgres',
+    'port': '5432'
 }
