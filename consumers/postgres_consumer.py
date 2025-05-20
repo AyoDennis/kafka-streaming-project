@@ -1,12 +1,10 @@
-from dotenv import load_dotenv
-
 import logging
-import time
 import os
+import time
 
 import psycopg2
 from confluent_kafka import Consumer
-
+from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -35,8 +33,7 @@ try:
     conn = psycopg2.connect(**pg_config)
     cursor = conn.cursor()
     logging.info("Connected to PostgreSQL database")
-    
-    # Create table if it doesn't exist
+
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS kafka_messages (
             id SERIAL PRIMARY KEY,
@@ -66,8 +63,8 @@ try:
             continue
         message = msg.value().decode('utf-8')
         logging.info("decoded event")
-        logging.info(f"Received message from topic => {msg.topic()}, partition => {msg.partition()}")
-        
+        logging.info(f"Received from {msg.topic()}, part: {msg.partition()}")
+
         try:
             cursor.execute("""
                 INSERT INTO kafka_messages (topic, partition, message)
