@@ -4,6 +4,7 @@ load_dotenv()
 
 import logging
 import time
+import os
 
 import psycopg2
 from confluent_kafka import Consumer
@@ -12,18 +13,18 @@ logging.basicConfig(format='%(asctime)s %(levelname)s:%(name)s:%(message)s')
 logging.getLogger().setLevel(20)
 
 consumer_configuration = {
-    'bootstrap.servers': 'localhost:9092',
-    'client.id': 'consumer1',
-    'group.id': 'demo',
-    'auto.offset.reset': 'earliest'
+    'bootstrap.servers': os.getenv('KAFKA_BOOTSTRAP_SERVERS'),
+    'client.id': os.getenv('KAFKA_CLIENT_ID'),
+    'group.id': os.getenv('KAFKA_GROUP_ID'),
+    'auto.offset.reset': os.getenv('KAFKA_AUTO_OFFSET_RESET')
 }
 
 pg_config = {
-    'host': 'localhost',
-    'database': 'postgres',
-    'user': 'postgres',
-    'password': 'postgres',
-    'port': '5432'
+    'host': os.getenv('PG_HOST'),
+    'database': os.getenv('PG_DATABASE'),
+    'user': os.getenv('PG_USER'),
+    'password': os.getenv('PG_PASSWORD'),
+    'port': os.getenv('PG_PORT')
 }
 
 consumer = Consumer(consumer_configuration)
