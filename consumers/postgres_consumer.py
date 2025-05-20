@@ -56,3 +56,9 @@ try:
     while True:
         msg = consumer.poll(1.0)
         time.sleep(2)
+        
+        if msg is None:
+            continue
+        if msg.error():
+            logging.error(f"Consumer error: {msg.error()}")
+            continue
